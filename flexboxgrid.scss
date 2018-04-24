@@ -18,6 +18,7 @@ $flexboxgrid-breakpoints:
   md 62em 61rem,
   lg 75em 71rem !default;
 $flexboxgrid-max-width: 1200px !default;
+$flexboxgrid-grid-classes-prefix: "" !default;
 
 //
 // -- Stop editing -- //
@@ -26,20 +27,20 @@ $flexboxgrid-max-width: 1200px !default;
 $gutter-compensation: $flexboxgrid-gutter-width * .5 * -1;
 $half-gutter-width: $flexboxgrid-gutter-width * .5;
 
-.wrapper {
+.#{$flexboxgrid-grid-classes-prefix}wrapper {
   box-sizing: border-box;
   max-width: $flexboxgrid-max-width;
   margin: 0 auto;
 }
 
-.container-fluid {
+.#{$flexboxgrid-grid-classes-prefix}container-fluid {
   margin-right: auto;
   margin-left: auto;
   padding-right: $flexboxgrid-outer-margin;
   padding-left: $flexboxgrid-outer-margin;
 }
 
-.row {
+.#{$flexboxgrid-grid-classes-prefix}row {
   box-sizing: border-box;
   @include flexbox();
   @include flex(0, 1, auto);
@@ -49,11 +50,11 @@ $half-gutter-width: $flexboxgrid-gutter-width * .5;
   margin-left: $gutter-compensation;
 }
 
-.row.reverse {
+.#{$flexboxgrid-grid-classes-prefix}row.reverse {
   @include flex-direction(row-reverse);
 }
 
-.col.reverse {
+.#{$flexboxgrid-grid-classes-prefix}col.reverse {
   @include flex-direction(column-reverse);
 }
 
@@ -73,19 +74,19 @@ $half-gutter-width: $flexboxgrid-gutter-width * .5;
 }
 
 $name: xs;
-.col-#{$name} {
+.#{$flexboxgrid-grid-classes-prefix}col-#{$name} {
   @include flexboxgrid-sass-col-common;
   @include flex-basis(auto);
 }
 @for $i from 1 through $flexboxgrid-grid-columns {
-  .col-#{$name}-#{$i} {
+  .#{$flexboxgrid-grid-classes-prefix}col-#{$name}-#{$i} {
     @include flexboxgrid-sass-col-common;
     @include flex-basis(100% / $flexboxgrid-grid-columns * $i);
     max-width: 100% / $flexboxgrid-grid-columns * $i;
   }
 }
 @for $i from 0 through $flexboxgrid-grid-columns {
-  .col-#{$name}-offset-#{$i} {
+  .#{$flexboxgrid-grid-classes-prefix}col-#{$name}-offset-#{$i} {
     @include flexboxgrid-sass-col-common;
     @if $i == 0 {
       margin-left: 0;
@@ -94,51 +95,51 @@ $name: xs;
     }
   }
 }
-.col-#{$name} {
+.#{$flexboxgrid-grid-classes-prefix}col-#{$name} {
   @include flex-grow(1);
   @include flex-basis(0);
   max-width: 100%;
 }
-.start-#{$name} {
+.#{$flexboxgrid-grid-classes-prefix}start-#{$name} {
   @include justify-content(flex-start);
   text-align: left;
 }
 
-.center-#{$name} {
+.#{$flexboxgrid-grid-classes-prefix}center-#{$name} {
   @include justify-content(center);
   text-align: center;
 }
 
-.end-#{$name} {
+.#{$flexboxgrid-grid-classes-prefix}end-#{$name} {
   @include justify-content(flex-end);
   text-align: right;
 }
 
-.top-#{$name} {
+.#{$flexboxgrid-grid-classes-prefix}top-#{$name} {
   @include align-items(flex-start);
 }
 
-.middle-#{$name} {
+.#{$flexboxgrid-grid-classes-prefix}middle-#{$name} {
   @include align-items(center);
 }
 
-.bottom-#{$name} {
+.#{$flexboxgrid-grid-classes-prefix}bottom-#{$name} {
   @include align-items(flex-end);
 }
 
-.around-#{$name} {
+.#{$flexboxgrid-grid-classes-prefix}around-#{$name} {
   @include justify-content(space-around);
 }
 
-.between-#{$name} {
+.#{$flexboxgrid-grid-classes-prefix}between-#{$name} {
   @include justify-content(space-between);
 }
 
-.first-#{$name} {
+.#{$flexboxgrid-grid-classes-prefix}first-#{$name} {
   order: -1;
 }
 
-.last-#{$name} {
+.#{$flexboxgrid-grid-classes-prefix}last-#{$name} {
   order: 1;
 }
 
@@ -148,7 +149,7 @@ $name: xs;
   $size: nth($breakpoint, 2);
   $container: nth($breakpoint, 3);
   @media only screen and (min-width: $size) {
-    .container {
+    .#{$flexboxgrid-grid-classes-prefix}container {
       width: $container;
     }
 
@@ -157,14 +158,14 @@ $name: xs;
       @include flex-basis(auto);
     }
     @for $i from 1 through $flexboxgrid-grid-columns {
-      .col-#{$name}-#{$i} {
+      .#{$flexboxgrid-grid-classes-prefix}col-#{$name}-#{$i} {
         @include flexboxgrid-sass-col-common;
         @include flex-basis(100% / $flexboxgrid-grid-columns * $i);
         max-width: 100% / $flexboxgrid-grid-columns * $i;
       }
     }
     @for $i from 0 through $flexboxgrid-grid-columns {
-      .col-#{$name}-offset-#{$i} {
+      .#{$flexboxgrid-grid-classes-prefix}col-#{$name}-offset-#{$i} {
         @include flexboxgrid-sass-col-common;
         @if $i == 0 {
           margin-left: 0;
@@ -173,51 +174,51 @@ $name: xs;
         }
       }
     }
-    .col-#{$name} {
+    .#{$flexboxgrid-grid-classes-prefix}col-#{$name} {
       @include flex-grow(1);
       @include flex-basis(0);
       max-width: 100%;
     }
-    .start-#{$name} {
+    .#{$flexboxgrid-grid-classes-prefix}start-#{$name} {
       @include justify-content(flex-start);
       text-align: left;
     }
 
-    .center-#{$name} {
+    .#{$flexboxgrid-grid-classes-prefix}center-#{$name} {
       @include justify-content(center);
       text-align: center;
     }
 
-    .end-#{$name} {
+    .#{$flexboxgrid-grid-classes-prefix}end-#{$name} {
       @include justify-content(flex-end);
       text-align: right;
     }
 
-    .top-#{$name} {
+    .#{$flexboxgrid-grid-classes-prefix}top-#{$name} {
       @include align-items(flex-start);
     }
 
-    .middle-#{$name} {
+    .#{$flexboxgrid-grid-classes-prefix}middle-#{$name} {
       @include align-items(center);
     }
 
-    .bottom-#{$name} {
+    .#{$flexboxgrid-grid-classes-prefix}bottom-#{$name} {
       @include align-items(flex-end);
     }
 
-    .around-#{$name} {
+    .#{$flexboxgrid-grid-classes-prefix}around-#{$name} {
       @include justify-content(space-around);
     }
 
-    .between-#{$name} {
+    .#{$flexboxgrid-grid-classes-prefix}between-#{$name} {
       @include justify-content(space-between);
     }
 
-    .first-#{$name} {
+    .#{$flexboxgrid-grid-classes-prefix}first-#{$name} {
       order: -1;
     }
 
-    .last-#{$name} {
+    .#{$flexboxgrid-grid-classes-prefix}last-#{$name} {
       order: 1;
     }
   }
