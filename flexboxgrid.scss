@@ -153,7 +153,7 @@ $name: xs;
       width: $container;
     }
 
-    .col-#{$name} {
+    .#{$flexboxgrid-grid-classes-prefix}col-#{$name} {
       @include flexboxgrid-sass-col-common;
       @include flex-basis(auto);
     }
